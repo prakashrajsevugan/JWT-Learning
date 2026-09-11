@@ -1,6 +1,6 @@
 # 🔐 Authentication Backend
 
-A secure authentication REST API built with **Node.js, Express.js, and PostgreSQL**.
+A secure REST API built with **Node.js, Express.js, and PostgreSQL** that provides user authentication with **email OTP verification, bcrypt password hashing, JWT-based authentication, rate limiting, and transactional email delivery using Resend.**
 
 ## 🚀 Features
 
