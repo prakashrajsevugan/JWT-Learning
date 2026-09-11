@@ -103,6 +103,26 @@ http://localhost:5000
 | POST   | `/api/auth/login`        | Login             |
 | GET    | `/api/users/profile`     | Protected profile |
 
+## 🧪 Testing with cURL
+Signup
+curl -X POST http://localhost:5000/api/auth/signup \
+  -H "Content-Type: application/json" \
+  -d '{"email":"your-email@gmail.com","password":"Hello123"}'
+
+Verify OTP
+curl -X POST http://localhost:5000/api/auth/verify-email \
+  -H "Content-Type: application/json" \
+  -d '{"email":"your-email@gmail.com","otp":"123456"}'
+
+Login
+curl -X POST http://localhost:5000/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"your-email@gmail.com","password":"Hello123"}'
+
+Access Protected Route
+curl http://localhost:5000/api/users/profile \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN"
+
 ## 🔑 Authentication Flow
 
 ```text
