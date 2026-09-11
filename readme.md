@@ -126,19 +126,44 @@ curl http://localhost:5000/api/users/profile \
 ## 🔑 Authentication Flow
 
 ```text
-Signup
-  ↓
-OTP sent to email
-  ↓
-Verify OTP
-  ↓
-User created
-  ↓
-Login
-  ↓
-JWT Token
-  ↓
-Protected Routes
+The authentication process works like this:
+
+                    ┌─────────────┐
+                    │    Signup   │
+                    └──────┬──────┘
+                           │
+                           ▼
+                  Generate 6-digit OTP
+                           │
+                           ▼
+                    Hash OTP + Password
+                           │
+                           ▼
+                    Send OTP via Resend
+                           │
+                           ▼
+                  ┌──────────────────┐
+                  │ Verify OTP Email │
+                  └────────┬─────────┘
+                           │
+                    OTP is valid?
+                      /          \
+                    No            Yes
+                    │              │
+                    ▼              ▼
+              Reject request    Create user
+                                   │
+                                   ▼
+                                Login
+                                   │
+                                   ▼
+                              Verify password
+                                   │
+                                   ▼
+                             Generate JWT
+                                   │
+                                   ▼
+                         Access protected APIs
 ```
 
 ## 🛡️ Security
