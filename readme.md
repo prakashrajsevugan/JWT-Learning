@@ -176,3 +176,8 @@ The authentication process works like this:
 * Rate limiting
 * Parameterized PostgreSQL queries
 * Environment-based secrets
+
+
+--
+--
+--
