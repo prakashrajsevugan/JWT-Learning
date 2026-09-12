@@ -175,9 +175,4 @@ The authentication process works like this:
 * OTP attempt limits
 * Rate limiting
 * Parameterized PostgreSQL queries
-* Environment-based secrets
-
-
---
---
---
+* Environment-based secrets 
