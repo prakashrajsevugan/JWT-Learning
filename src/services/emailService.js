@@ -4,7 +4,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 const sendOTPEmail = async (email, otp) => {
     const { data, error } = await resend.emails.send({
-        from: "onboarding@resend.dev",
+        from: process.env.RESEND_EMAIL,
         to: email,
         subject: "Verify your email",
         html: `
@@ -15,6 +15,11 @@ const sendOTPEmail = async (email, otp) => {
             <h1>${otp}</h1>
 
             <p>This OTP expires in 10 minutes.</p>
+
+            <p>
+                If you did not request this code,
+                you can safely ignore this email.
+            </p>
         `
     });
 
